@@ -21,10 +21,11 @@
   background: #e44020;
   text-decoration: none;
   color: white;
+  border: 0.1rem solid white;
 }
 #btn-choices:hover {
   cursor: pointer;
-  box-shadow: 0 0 1.4rem #e44020;
+  box-shadow: 0 0 1.8rem #e44020;
   transform: translateY(-0.2rem);
   transform: transform 150ms;
 }

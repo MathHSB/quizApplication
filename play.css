@@ -1,0 +1,30 @@
+#question {
+  margin-bottom: 5rem;
+  text-align: center;
+  color: #06c2fc;
+  text-shadow: 0.2 0 0.3rem #06c2fc;
+  font-size: 3rem;
+}
+.choices {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#btn-choices {
+  width: 90%;
+  margin-bottom: 0.8rem;
+  border-radius: 2rem;
+  padding: 3rem;
+  font-size: 1.8rem;
+  background: #e44020;
+  text-decoration: none;
+  color: white;
+}
+#btn-choices:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1.4rem #e44020;
+  transform: translateY(-0.2rem);
+  transform: transform 150ms;
+}

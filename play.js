@@ -41,6 +41,7 @@ nextQuestion = () => {
   if (availableQuestions.length === 0) {
     window.location.assign("/end.html");
   }
+
   countText.innerText = `${countQuestion}/3`;
 
   const indexQuestion = Math.floor(Math.random() * availableQuestions.length);

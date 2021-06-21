@@ -28,6 +28,7 @@
 
 h1 {
   margin-bottom: 5rem;
+  letter-spacing: 0.45rem;
   font-size: 7rem;
   color: #06c2fc;
   text-shadow: 0 0 1rem #06c2fc;
@@ -39,7 +40,6 @@ h1 {
   margin-bottom: 1.2rem;
   text-decoration: none;
   font-size: 1.5rem;
-  font-weight: bold;
   text-align: center;
   color: #ffffff;
   border: 0.5rem solid #e44020;

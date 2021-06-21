@@ -1,9 +1,12 @@
 const question = document.querySelector("#question");
 const choices = Array.from(document.querySelectorAll("#btn-choices"));
+const countText = document.querySelector(".progress-text");
+const progresFull = document.querySelector(".progress-full");
 
 let currentQuestion = {};
 let availableQuestions = [];
-let countQuestion = 1;
+let countQuestion = 0;
+let correctAnswer = 0;
 
 let MAX_QUESTIONS = 3;
 
@@ -17,7 +20,7 @@ let questions = [
     answer: 2,
   },
   {
-    question: "Qual linguagem de promação voce esta aprendendo??",
+    question: "Qual linguagem de programação voce esta aprendendo??",
     choice1: "Java",
     choice2: "JavaScript",
     choice3: "Ruby",
@@ -38,6 +41,8 @@ nextQuestion = () => {
   if (availableQuestions.length === 0) {
     window.location.assign("/end.html");
   }
+  countText.innerText = `${countQuestion}/3`;
+
   const indexQuestion = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[indexQuestion];
   question.innerText = currentQuestion.question;
@@ -48,13 +53,21 @@ nextQuestion = () => {
   });
 
   availableQuestions.splice(indexQuestion, 1);
+  progresFull.style.width = `${countQuestion / MAX_QUESTIONS}` * 100 + "%";
+};
+
+selectedChoice = (event) => {
+  event.preventDefault();
+  countQuestion++;
+  const answerTargetNumber = event.target.dataset.number;
+  if (answerTargetNumber == currentQuestion.answer) {
+    correctAnswer++;
+  }
+  nextQuestion();
 };
 
 choices.forEach((choice) => {
-  choice.addEventListener("click", (event) => {
-    event.preventDefault();
-    nextQuestion();
-  });
+  choice.addEventListener("click", selectedChoice);
 });
 
 startGame = () => {
@@ -62,4 +75,5 @@ startGame = () => {
   availableQuestions = [...questions];
   nextQuestion();
 };
+
 startGame();

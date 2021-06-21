@@ -8,7 +8,7 @@
 }
 .choices {
   display: flex;
-  width: 100%;
+  width: 80%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -17,7 +17,7 @@
   width: 90%;
   margin-bottom: 1rem;
   border-radius: 2rem;
-  padding: 3rem;
+  padding: 2rem;
   font-size: 1.8rem;
   background: #e44020;
   text-decoration: none;
@@ -40,12 +40,18 @@
 }
 .progress {
   height: 1.2rem;
-  background: #e44020;
+  background: #06c2fc;
   margin-bottom: 0.8rem;
   border-radius: 0.5rem;
 }
+.progress-full {
+  width: 0;
+  height: 1.2rem;
+  border-radius: 0.5rem;
+  background: #e44020;
+}
 .progress-text {
-  font-size: 2rem;
-  color: white;
+  font-size: 3.5rem;
+  color: #06c2fc;
   user-select: none;
 }

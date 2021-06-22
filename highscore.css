@@ -1,0 +1,21 @@
+.formatHighScore {
+  list-style: none;
+  text-align: left;
+}
+.formatHighScore li {
+  width: 40rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: #e44020;
+  text-decoration: none;
+  color: white;
+  border: 0.1rem solid white;
+  user-select: none;
+}
+.btn {
+  margin-top: 3.5rem !important;
+  margin-bottom: 2rem !important;
+}

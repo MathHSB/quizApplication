@@ -17,7 +17,7 @@ let questions = [
     choice2: "7",
     choice3: "4",
     choice4: "5",
-    answer: 2,
+    answer: 3,
   },
   {
     question: "Qual linguagem de programação voce esta aprendendo??",
@@ -38,11 +38,13 @@ let questions = [
 ];
 
 nextQuestion = () => {
-  if (availableQuestions.length === 0) {
-    window.location.assign("/end.html");
+  if (availableQuestions.length === 0 || countQuestion > MAX_QUESTIONS) {
+    localStorage.setItem("recentScore", correctAnswer);
+    return window.location.assign("/end.html");
   }
 
   countText.innerText = `${countQuestion}/3`;
+  progresFull.style.width = `${countQuestion / MAX_QUESTIONS}` * 100 + "%";
 
   const indexQuestion = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[indexQuestion];
@@ -54,7 +56,6 @@ nextQuestion = () => {
   });
 
   availableQuestions.splice(indexQuestion, 1);
-  progresFull.style.width = `${countQuestion / MAX_QUESTIONS}` * 100 + "%";
 };
 
 selectedChoice = (event) => {

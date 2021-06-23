@@ -1,3 +1,7 @@
+h1 {
+  margin-bottom: 1.5rem !important;
+}
+
 .formatHighScore {
   list-style: none;
   text-align: left;
@@ -18,4 +22,29 @@
 .btn {
   margin-top: 3.5rem !important;
   margin-bottom: 2rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 5.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .formatHighScore li {
+    padding: 1.2rem;
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .formatHighScore li {
+    padding: 0.9rem;
+    font-size: 1.2rem;
+  }
+  .btn {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+  }
 }

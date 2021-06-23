@@ -36,7 +36,7 @@
   width: 100%;
   display: flex;
   padding: 1.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   flex-direction: column;
 }
 .progress {
@@ -55,4 +55,27 @@
   font-size: 3.5rem;
   color: #06c2fc;
   user-select: none;
+}
+
+@media screen and (max-width: 800px) {
+  #question {
+    font-size: 2.5rem;
+  }
+  #btn-choices {
+    font-size: 1.5rem;
+  }
+  .container-progress {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .progress-text {
+    font-size: 2.5rem;
+  }
+  #question {
+    font-size: 1.5rem;
+  }
+  #btn-choices {
+    font-size: 1.2rem;
+  }
 }

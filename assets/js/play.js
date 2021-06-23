@@ -112,7 +112,7 @@ nextQuestion = () => {
   // Verifica se o array de questões atuais esta vazia ou se o contador é maior que o número de questões, se um deles for verdadeiro, acrecenta o score atual ao Local Storage e direciona a pagina final do quiz.
   if (availableQuestions.length === 0 || countQuestion > MAX_QUESTIONS) {
     localStorage.setItem("recentScore", correctAnswer);
-    return window.location.assign("/end.html");
+    return window.location.assign("end.html");
   }
 
   // alterna valor do contador e aumenta barra de questões a cada próxima questão.

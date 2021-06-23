@@ -3,12 +3,18 @@ const btnSave = document.querySelector("#btnSave");
 const inputScore = document.querySelector(".inputScore");
 const sucessSave = document.querySelector(".sucessSave");
 
+//Transforma a string JSON do Local Storage em um arquivo manipulável JavaScript.
 const highScore = JSON.parse(localStorage.getItem("HighScore")) || [];
+
+//Pega o valor da pontuação atual no Local Storage.
 const recentScore = localStorage.getItem("recentScore");
+
+//Para verificar se o nome passado no final do quiz é válido.
 let clickSave = true;
 
 finalScore.innerText = recentScore;
 
+//Verifica se o nome é valido, se for acresenta nome e score ao Local Storage.
 const saveScore = () => {
   if (clickSave) {
     if (

@@ -1,5 +1,8 @@
 const question = document.querySelector("#question");
+
+// Transforma a NodeList em uma Array para uso dos métodos nativos de uma array.
 const choices = Array.from(document.querySelectorAll("#btn-choices"));
+
 const countText = document.querySelector(".progress-text");
 const progresFull = document.querySelector(".progress-full");
 
@@ -98,6 +101,7 @@ let questions = [
   },
 ];
 
+//Inicia o quiz incrementando uma unidade ao contador e copiando o array de questões para manipulação na sequencia.
 startGame = () => {
   countQuestion++;
   availableQuestions = [...questions];
@@ -105,26 +109,32 @@ startGame = () => {
 };
 
 nextQuestion = () => {
+  // Verifica se o array de questões atuais esta vazia ou se o contador é maior que o número de questões, se um deles for verdadeiro, acrecenta o score atual ao Local Storage e direciona a pagina final do quiz.
   if (availableQuestions.length === 0 || countQuestion > MAX_QUESTIONS) {
     localStorage.setItem("recentScore", correctAnswer);
     return window.location.assign("/end.html");
   }
 
+  // alterna valor do contador e aumenta barra de questões a cada próxima questão.
   countText.innerText = `${countQuestion}/10`;
   progresFull.style.width = `${countQuestion / MAX_QUESTIONS}` * 100 + "%";
 
+  // referencia a questão atual a uma das questões que restam na array de questões disponiveis com o uso de um index aletorio que é formado de acordo com o tamanho da array de questões atual.
   const indexQuestion = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[indexQuestion];
   question.innerText = currentQuestion.question;
 
+  //Uso do dataset para facilitar a referencia em cada alternativa de cada questão.
   choices.forEach((choice) => {
     const number = choice.dataset.number;
     choice.innerText = currentQuestion[`choice${number}`];
   });
 
+  //remoção da questão atual para nao se repetir ao longo do quiz
   availableQuestions.splice(indexQuestion, 1);
 };
 
+//Previne padrão de click a cada escolha de alternativa, incrementa ao contador, verifica se a resposta é a certa e chama a proxima questão.
 selectedChoice = (event) => {
   event.preventDefault();
   countQuestion++;
@@ -135,6 +145,7 @@ selectedChoice = (event) => {
   nextQuestion();
 };
 
+//Evento de click em cada alternativa.
 choices.forEach((choice) => {
   choice.addEventListener("click", selectedChoice);
 });
